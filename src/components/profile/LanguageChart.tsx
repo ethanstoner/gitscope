@@ -56,7 +56,7 @@ function LanguageIcon({ lang, color }: { lang: string; color: string }) {
   if (!url || failed) {
     return (
       <span
-        className="w-3 h-3 rounded-full inline-block"
+        className="w-3 h-3 rounded-full inline-block flex-shrink-0"
         style={{ backgroundColor: color }}
       />
     );
@@ -66,7 +66,7 @@ function LanguageIcon({ lang, color }: { lang: string; color: string }) {
     <img
       src={url}
       alt={lang}
-      className="w-4 h-4"
+      className="w-4 h-4 flex-shrink-0"
       loading="lazy"
       onError={() => setFailed(true)}
     />
@@ -83,43 +83,35 @@ export default function LanguageChart({ languages }: LanguageChartProps) {
     );
   }
 
-  const maxPct = languages[0]?.percentage || 1;
-
   return (
     <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
-      <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Languages</h2>
+      <h2 className="text-base font-semibold text-[#e6edf3] mb-3">Languages</h2>
 
-      <div className="space-y-3">
+      {/* GitHub-style stacked horizontal bar */}
+      <div className="flex h-2 rounded-full overflow-hidden mb-4">
         {languages.map((lang) => (
-          <div key={lang.name} className="group">
-            <div className="flex items-center gap-2.5 mb-1">
-              {/* Icon or color dot */}
-              <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                <LanguageIcon lang={lang.name} color={lang.color} />
-              </div>
+          <div
+            key={lang.name}
+            style={{
+              width: `${lang.percentage}%`,
+              backgroundColor: lang.color,
+            }}
+            title={`${lang.name} ${lang.percentage}%`}
+          />
+        ))}
+      </div>
 
-              {/* Language name */}
-              <span className="text-sm text-[#e6edf3] flex-1">
-                {lang.name}
-              </span>
-
-              {/* Percentage */}
-              <span className="font-mono text-xs text-[#8b949e] tabular-nums">
-                {lang.percentage}%
-              </span>
-            </div>
-
-            {/* Progress bar */}
-            <div className="ml-[30px] h-1.5 rounded-full bg-[#21262d] overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500 ease-out"
-                style={{
-                  width: `${(lang.percentage / maxPct) * 100}%`,
-                  backgroundColor: lang.color,
-                  opacity: 0.8,
-                }}
-              />
-            </div>
+      {/* Language list with icons */}
+      <div className="flex flex-wrap gap-x-4 gap-y-2">
+        {languages.map((lang) => (
+          <div key={lang.name} className="flex items-center gap-1.5">
+            <LanguageIcon lang={lang.name} color={lang.color} />
+            <span className="text-xs font-semibold text-[#e6edf3]">
+              {lang.name}
+            </span>
+            <span className="text-xs text-[#8b949e]">
+              {lang.percentage.toFixed(1)}%
+            </span>
           </div>
         ))}
       </div>

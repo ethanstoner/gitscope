@@ -12,13 +12,18 @@ function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   if (days < 1) return 'today';
-  if (days === 1) return '1 day ago';
+  if (days === 1) return 'yesterday';
   if (days < 30) return `${days} days ago`;
   const months = Math.floor(days / 30);
   if (months === 1) return '1 month ago';
   if (months < 12) return `${months} months ago`;
   const years = Math.floor(months / 12);
   return years === 1 ? '1 year ago' : `${years} years ago`;
+}
+
+function formatStars(n: number): string {
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return n.toLocaleString();
 }
 
 const sortOptions: { key: SortKey; label: string }[] = [
@@ -54,69 +59,91 @@ export default function RepoCards({ repos }: RepoCardsProps) {
 
   return (
     <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
-      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+      {/* Header with underline-style tabs like GitHub */}
+      <div className="flex items-center justify-between mb-3">
         <h2 className="text-base font-semibold text-[#e6edf3]">Top Repositories</h2>
-        <div className="flex gap-1">
-          {sortOptions.map((opt) => (
-            <button
-              key={opt.key}
-              onClick={() => setSortBy(opt.key)}
-              className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors duration-150 ${
-                sortBy === opt.key
-                  ? 'bg-[#58a6ff]/15 text-[#58a6ff]'
-                  : 'text-[#8b949e] hover:text-[#e6edf3]'
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {/* Sort tabs — GitHub underline style */}
+      <div className="flex border-b border-[#21262d] mb-4">
+        {sortOptions.map((opt) => (
+          <button
+            key={opt.key}
+            onClick={() => setSortBy(opt.key)}
+            className={`px-3 py-2 text-xs font-medium border-b-2 -mb-px transition-colors duration-150 ${
+              sortBy === opt.key
+                ? 'text-[#e6edf3] border-[#f78166]'
+                : 'text-[#8b949e] border-transparent hover:text-[#e6edf3] hover:border-[#30363d]'
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {sorted.map((repo) => (
           <div
             key={repo.id}
-            className="border border-[#21262d] rounded-md p-3 hover:border-[#30363d] transition-colors duration-150"
+            className="border border-[#30363d] rounded-md p-4"
           >
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold text-[#58a6ff] hover:underline truncate block"
-            >
-              {repo.name}
-            </a>
+            {/* Repo icon + name */}
+            <div className="flex items-center gap-2 mb-1">
+              {/* GitHub repo icon */}
+              <svg className="w-4 h-4 text-[#8b949e] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z" />
+              </svg>
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-[#58a6ff] hover:underline truncate"
+              >
+                {repo.name}
+              </a>
+              <span className="text-[10px] text-[#8b949e] border border-[#30363d] rounded-full px-1.5 py-px ml-auto flex-shrink-0">
+                Public
+              </span>
+            </div>
+
+            {/* Description */}
             {repo.description && (
-              <p className="text-xs text-[#8b949e] mt-1 line-clamp-2">
-                {repo.description.length > 100
-                  ? repo.description.slice(0, 100) + '...'
-                  : repo.description}
+              <p className="text-xs text-[#8b949e] mt-1 mb-3 line-clamp-2">
+                {repo.description}
               </p>
             )}
-            <div className="flex items-center gap-3 mt-3 text-xs text-[#8b949e]">
+            {!repo.description && <div className="mb-3" />}
+
+            {/* Meta row — matches GitHub exactly */}
+            <div className="flex items-center gap-4 text-xs text-[#8b949e]">
               {repo.language && (
                 <span className="flex items-center gap-1">
                   <span
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '#555' }}
+                    className="w-3 h-3 rounded-full inline-block"
+                    style={{ backgroundColor: getLanguageColor(repo.language) }}
                   />
                   {repo.language}
                 </span>
               )}
-              <span className="flex items-center gap-0.5">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                </svg>
-                <span className="font-mono">{repo.stargazers_count.toLocaleString()}</span>
-              </span>
-              <span className="flex items-center gap-0.5">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                </svg>
-                <span className="font-mono">{repo.forks_count.toLocaleString()}</span>
-              </span>
-              <span className="ml-auto">Updated {timeAgo(repo.updated_at)}</span>
+              {repo.stargazers_count > 0 && (
+                <span className="flex items-center gap-1 hover:text-[#58a6ff] cursor-pointer">
+                  {/* GitHub star icon */}
+                  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" />
+                  </svg>
+                  {formatStars(repo.stargazers_count)}
+                </span>
+              )}
+              {repo.forks_count > 0 && (
+                <span className="flex items-center gap-1">
+                  {/* GitHub fork icon */}
+                  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z" />
+                  </svg>
+                  {formatStars(repo.forks_count)}
+                </span>
+              )}
+              <span className="ml-auto text-[#6e7681]">Updated {timeAgo(repo.updated_at)}</span>
             </div>
           </div>
         ))}
@@ -130,7 +157,7 @@ export default function RepoCards({ repos }: RepoCardsProps) {
             rel="noopener noreferrer"
             className="text-sm text-[#58a6ff] hover:underline"
           >
-            View all on GitHub &rarr;
+            View all on GitHub →
           </a>
         </div>
       )}
