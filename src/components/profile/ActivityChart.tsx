@@ -37,7 +37,7 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
       <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Weekly Activity</h2>
 
       <ResponsiveContainer width="100%" height={250}>
-        <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+        <AreaChart data={data} margin={{ top: 4, right: 8, bottom: 4, left: -10 }}>
           <defs>
             <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#238636" stopOpacity={0.4} />
@@ -49,12 +49,15 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
             tick={{ fontSize: 11, fill: '#8b949e' }}
             axisLine={false}
             tickLine={false}
+            interval="preserveStartEnd"
+            minTickGap={40}
           />
           <YAxis
             tick={{ fontSize: 11, fill: '#8b949e' }}
             axisLine={false}
             tickLine={false}
             allowDecimals={false}
+            width={35}
           />
           <Tooltip
             contentStyle={{
