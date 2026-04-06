@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+@layer base {
+  :root {
   --bg: #0B0D11;
   --surface: #13151A;
   --surface-hover: #1A1D24;
@@ -20,12 +21,13 @@
   scrollbar-color: rgba(255,255,255,0.08) transparent;
 }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0B0D11 !important;
+    color: #E8E9ED;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 /* Subtle grain overlay on body */
