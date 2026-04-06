@@ -9,6 +9,7 @@ export function useGitHubEvents(username: string | undefined) {
   const [heatmap, setHeatmap] = useState<HeatmapDay[]>([]);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity[]>([]);
   const [activeDays, setActiveDays] = useState(0);
+  const [events, setEvents] = useState<GitHubEvent[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [skipped, setSkipped] = useState(false);
@@ -40,6 +41,7 @@ export function useGitHubEvents(username: string | undefined) {
         if (signal.aborted) return;
 
         const codingEvents = allEvents.filter(e => CODING_EVENTS.includes(e.type));
+        setEvents(codingEvents);
 
         const dayCounts: Record<string, number> = {};
         for (const event of codingEvents) {
@@ -73,5 +75,5 @@ export function useGitHubEvents(username: string | undefined) {
     return () => controller.abort();
   }, [username]);
 
-  return { heatmap, weeklyActivity, activeDays, loading, error, skipped };
+  return { heatmap, weeklyActivity, activeDays, events, loading, error, skipped };
 }

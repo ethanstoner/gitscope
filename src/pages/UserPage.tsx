@@ -15,7 +15,7 @@ export default function UserPage() {
   const { username } = useParams<{ username: string }>();
   const { user, loading: userLoading, error: userError } = useGitHubUser(username);
   const { repos, languages, totalStars, loading: reposLoading } = useGitHubRepos(username);
-  const { heatmap, weeklyActivity, activeDays, loading: eventsLoading, skipped } = useGitHubEvents(username);
+  const { heatmap, weeklyActivity, activeDays, events, loading: eventsLoading, skipped } = useGitHubEvents(username);
 
   const loading = userLoading || reposLoading || eventsLoading;
 
@@ -54,7 +54,7 @@ export default function UserPage() {
       ) : (
         <>
           <div className="animate-fade-up" style={{ animationDelay: '300ms' }}>
-            <ActivityHeatmap heatmap={heatmap} />
+            <ActivityHeatmap heatmap={heatmap} events={events} />
           </div>
           <div className="animate-fade-up" style={{ animationDelay: '400ms' }}>
             <ActivityChart weeklyActivity={weeklyActivity} />
