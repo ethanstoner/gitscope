@@ -14,7 +14,7 @@ export default function ErrorMessage({ error, onRetry }: ErrorMessageProps) {
         <div className="bg-[#13151A] border border-white/6 rounded-lg p-8 max-w-md w-full text-center space-y-3">
           <div className="text-4xl">&#x1F50D;</div>
           <h2 className="text-xl font-display font-semibold text-[#E8E9ED]">User not found</h2>
-          <p className="text-sm text-[#7A7D85]">
+          <p className="text-sm text-[#9CA0A8]">
             The GitHub user you searched for doesn't exist. Check the spelling and try again.
           </p>
           <button
@@ -34,7 +34,7 @@ export default function ErrorMessage({ error, onRetry }: ErrorMessageProps) {
         <div className="bg-[#13151A] border border-[#F0B429]/20 rounded-lg p-8 max-w-md w-full text-center space-y-3">
           <div className="text-4xl">&#x23F3;</div>
           <h2 className="text-xl font-display font-semibold text-[#F0B429]">Rate Limited</h2>
-          <p className="text-sm text-[#7A7D85]">
+          <p className="text-sm text-[#9CA0A8]">
             You've exceeded GitHub's API rate limit. Add a personal access token to get 5,000 requests/hour.
           </p>
           <a
@@ -55,7 +55,7 @@ export default function ErrorMessage({ error, onRetry }: ErrorMessageProps) {
       <div className="bg-[#13151A] border border-[#F05252]/20 rounded-lg p-8 max-w-md w-full text-center space-y-3">
         <div className="text-4xl">&#x26A0;&#xFE0F;</div>
         <h2 className="text-xl font-display font-semibold text-[#F05252]">Something went wrong</h2>
-        <p className="text-sm text-[#7A7D85]">{error}</p>
+        <p className="text-sm text-[#9CA0A8]">{error}</p>
         {onRetry && (
           <button
             onClick={onRetry}

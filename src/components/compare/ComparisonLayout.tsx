@@ -24,7 +24,7 @@ function ProfileCard({ user, totalStars }: { user: GitHubUser; totalStars: numbe
             href={user.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-mono text-[#7A7D85] hover:text-[#F0B429] transition-colors"
+            className="text-sm font-mono text-[#9CA0A8] hover:text-[#F0B429] transition-colors"
           >
             @{user.login}
           </a>
@@ -44,7 +44,7 @@ function ProfileCard({ user, totalStars }: { user: GitHubUser; totalStars: numbe
 function StatItem({ label, value }: { label: string; value: number }) {
   return (
     <div>
-      <p className="text-xs text-[#4A4D55] uppercase tracking-wide">{label}</p>
+      <p className="text-xs text-[#8B8F96] uppercase tracking-wide">{label}</p>
       <p className="font-mono text-xl font-semibold text-[#E8E9ED]">{value.toLocaleString()}</p>
     </div>
   );

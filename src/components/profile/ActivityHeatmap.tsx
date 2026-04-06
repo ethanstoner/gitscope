@@ -99,7 +99,7 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
               x={labelWidth + m.col * (CELL_SIZE + GAP)}
               y={12}
               fontSize={10}
-              fill="#4A4D55"
+              fill="#6B6F77"
             >
               {m.label}
             </text>
@@ -113,7 +113,7 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
                 x={0}
                 y={topOffset + i * (CELL_SIZE + GAP) + CELL_SIZE - 2}
                 fontSize={10}
-                fill="#4A4D55"
+                fill="#6B6F77"
               >
                 {label}
               </text>
@@ -150,7 +150,7 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
       />
 
       {/* Color legend */}
-      <div className="flex items-center gap-1 mt-3 text-xs text-[#4A4D55] justify-end">
+      <div className="flex items-center gap-1 mt-3 text-xs text-[#8B8F96] justify-end">
         <span>Less</span>
         {COLORS.map((c, i) => (
           <span

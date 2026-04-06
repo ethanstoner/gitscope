@@ -22,7 +22,7 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
     return (
       <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
         <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Weekly Activity</h2>
-        <p className="text-[#4A4D55] text-sm text-center py-8">No recent activity</p>
+        <p className="text-[#8B8F96] text-sm text-center py-8">No recent activity</p>
       </div>
     );
   }
@@ -46,12 +46,12 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
           </defs>
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 11, fill: '#4A4D55' }}
+            tick={{ fontSize: 11, fill: '#6B6F77' }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: '#4A4D55' }}
+            tick={{ fontSize: 11, fill: '#6B6F77' }}
             axisLine={false}
             tickLine={false}
             allowDecimals={false}

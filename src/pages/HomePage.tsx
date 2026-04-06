@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1 className="font-display text-6xl sm:text-7xl font-bold mb-3 bg-gradient-to-r from-[#F0B429] via-[#E0A420] to-[#5CE0D8] bg-clip-text text-transparent">
         GitScope
       </h1>
-      <p className="font-mono text-[#7A7D85] text-sm tracking-wide mb-10">
+      <p className="font-mono text-[#9CA0A8] text-sm tracking-wide mb-10">
         Analyze any GitHub profile
       </p>
       <div className="w-full flex justify-center">

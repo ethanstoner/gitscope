@@ -52,7 +52,7 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
     >
       <div className="bg-[#13151A] rounded-lg border border-white/8 w-full max-w-md mx-4 p-6 space-y-4 animate-fade-up">
         <h2 className="text-lg font-display font-semibold text-[#E8E9ED]">GitHub Token</h2>
-        <p className="text-sm text-[#7A7D85]">
+        <p className="text-sm text-[#9CA0A8]">
           Add a GitHub personal access token for 5,000 requests/hour instead of 60.
         </p>
         <a
@@ -69,20 +69,20 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-          className="w-full px-4 py-2.5 rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 font-mono text-sm"
+          className="w-full px-4 py-2.5 rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#8B8F96] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 font-mono text-sm"
           autoFocus
         />
 
         <div className="flex gap-2 justify-end">
           <button
             onClick={handleClear}
-            className="px-4 py-2 text-sm text-[#7A7D85] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
+            className="px-4 py-2 text-sm text-[#9CA0A8] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Clear Token
           </button>
           <button
             onClick={handleClose}
-            className="px-4 py-2 text-sm text-[#7A7D85] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
+            className="px-4 py-2 text-sm text-[#9CA0A8] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Cancel
           </button>

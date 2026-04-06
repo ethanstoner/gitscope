@@ -80,13 +80,13 @@ export default function ComparePage() {
       <div className="animate-fade-up flex flex-wrap items-center gap-3" style={{ animationDelay: '0ms' }}>
         <button
           onClick={() => navigate(`/compare/${username2}/${username1}`)}
-          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#7A7D85] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
+          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#9CA0A8] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
         >
           Swap users
         </button>
         <button
           onClick={() => navigate('/')}
-          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#7A7D85] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
+          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#9CA0A8] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
         >
           Edit
         </button>
@@ -138,11 +138,11 @@ export default function ComparePage() {
       {/* Language charts side by side */}
       <div className="animate-fade-up grid grid-cols-1 md:grid-cols-2 gap-6" style={{ animationDelay: '400ms' }}>
         <div>
-          <p className="text-sm text-[#7A7D85] mb-2 font-medium font-mono">@{user1.login}</p>
+          <p className="text-sm text-[#9CA0A8] mb-2 font-medium font-mono">@{user1.login}</p>
           <LanguageChart languages={r1.languages} />
         </div>
         <div>
-          <p className="text-sm text-[#7A7D85] mb-2 font-medium font-mono">@{user2.login}</p>
+          <p className="text-sm text-[#9CA0A8] mb-2 font-medium font-mono">@{user2.login}</p>
           <LanguageChart languages={r2.languages} />
         </div>
       </div>
@@ -153,8 +153,8 @@ export default function ComparePage() {
           <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Weekly Activity</h2>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={activityData}>
-              <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#4A4D55' }} />
-              <YAxis tick={{ fontSize: 12, fill: '#4A4D55' }} />
+              <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#6B6F77' }} />
+              <YAxis tick={{ fontSize: 12, fill: '#6B6F77' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#1A1D24',
@@ -164,7 +164,7 @@ export default function ComparePage() {
                   color: '#E8E9ED',
                 }}
               />
-              <Legend wrapperStyle={{ color: '#7A7D85' }} />
+              <Legend wrapperStyle={{ color: '#9CA0A8' }} />
               <Area
                 type="monotone"
                 dataKey={user1.login}

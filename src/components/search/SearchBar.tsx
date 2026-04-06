@@ -30,7 +30,7 @@ export default function SearchBar() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter a GitHub username..."
-          className="flex-1 px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200"
+          className="flex-1 px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#8B8F96] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200"
         />
         <button
           type="submit"
@@ -46,14 +46,14 @@ export default function SearchBar() {
           value={compareUser}
           onChange={(e) => setCompareUser(e.target.value)}
           placeholder="Enter second GitHub username..."
-          className="w-full px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 animate-fade-up"
+          className="w-full px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#8B8F96] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 animate-fade-up"
         />
       )}
 
       <button
         type="button"
         onClick={() => setShowCompare(!showCompare)}
-        className="text-sm text-[#7A7D85] hover:text-[#F0B429] transition-colors duration-200"
+        className="text-sm text-[#9CA0A8] hover:text-[#F0B429] transition-colors duration-200"
       >
         {showCompare ? 'single user mode' : 'or compare two users'}
       </button>

@@ -44,12 +44,12 @@ export default function ComparisonBars({
       <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Metric Comparison</h2>
       <ResponsiveContainer width="100%" height={350}>
         <BarChart data={data} layout="vertical" margin={{ left: 20, right: 20 }}>
-          <XAxis type="number" tick={{ fontSize: 12, fill: '#4A4D55' }} />
+          <XAxis type="number" tick={{ fontSize: 12, fill: '#6B6F77' }} />
           <YAxis
             type="category"
             dataKey="metric"
             width={130}
-            tick={{ fontSize: 12, fill: '#4A4D55' }}
+            tick={{ fontSize: 12, fill: '#6B6F77' }}
           />
           <Tooltip
             contentStyle={{
@@ -60,7 +60,7 @@ export default function ComparisonBars({
               color: '#E8E9ED',
             }}
           />
-          <Legend wrapperStyle={{ color: '#7A7D85' }} />
+          <Legend wrapperStyle={{ color: '#9CA0A8' }} />
           <Bar dataKey={user1.login} fill="#F0B429" radius={[0, 4, 4, 0]} />
           <Bar dataKey={user2.login} fill="#5CE0D8" radius={[0, 4, 4, 0]} />
         </BarChart>

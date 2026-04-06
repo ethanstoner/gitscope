@@ -51,7 +51,7 @@ export default function LanguageChart({ languages }: LanguageChartProps) {
     return (
       <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
         <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Languages</h2>
-        <p className="text-[#4A4D55] text-sm text-center py-8">No language data</p>
+        <p className="text-[#8B8F96] text-sm text-center py-8">No language data</p>
       </div>
     );
   }
