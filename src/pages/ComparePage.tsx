@@ -80,25 +80,25 @@ export default function ComparePage() {
       <div className="animate-fade-up flex flex-wrap items-center gap-3" style={{ animationDelay: '0ms' }}>
         <button
           onClick={() => navigate(`/compare/${username2}/${username1}`)}
-          className="px-4 py-2 text-sm font-medium bg-white border border-black/8 rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#7A7D85] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
         >
           Swap users
         </button>
         <button
           onClick={() => navigate('/')}
-          className="px-4 py-2 text-sm font-medium bg-white border border-black/8 rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-4 py-2 text-sm font-medium bg-[#13151A] border border-white/6 rounded-lg text-[#7A7D85] hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
         >
           Edit
         </button>
         <Link
           to={`/user/${username1}`}
-          className="text-sm text-violet-600 hover:underline"
+          className="text-sm text-[#F0B429] hover:text-[#E0A420] transition-colors"
         >
           @{username1} profile
         </Link>
         <Link
           to={`/user/${username2}`}
-          className="text-sm text-violet-600 hover:underline"
+          className="text-sm text-[#F0B429] hover:text-[#E0A420] transition-colors"
         >
           @{username2} profile
         </Link>
@@ -138,45 +138,46 @@ export default function ComparePage() {
       {/* Language charts side by side */}
       <div className="animate-fade-up grid grid-cols-1 md:grid-cols-2 gap-6" style={{ animationDelay: '400ms' }}>
         <div>
-          <p className="text-sm text-gray-500 mb-2 font-medium">@{user1.login}</p>
+          <p className="text-sm text-[#7A7D85] mb-2 font-medium font-mono">@{user1.login}</p>
           <LanguageChart languages={r1.languages} />
         </div>
         <div>
-          <p className="text-sm text-gray-500 mb-2 font-medium">@{user2.login}</p>
+          <p className="text-sm text-[#7A7D85] mb-2 font-medium font-mono">@{user2.login}</p>
           <LanguageChart languages={r2.languages} />
         </div>
       </div>
 
       {/* Activity overlay chart */}
       {activityData.length > 0 && (
-        <div className="animate-fade-up bg-white rounded-xl border border-black/8 p-6" style={{ animationDelay: '500ms' }}>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Weekly Activity</h2>
+        <div className="animate-fade-up bg-[#13151A] rounded-lg border border-white/6 p-6" style={{ animationDelay: '500ms' }}>
+          <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Weekly Activity</h2>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={activityData}>
-              <XAxis dataKey="week" tick={{ fontSize: 11 }} />
-              <YAxis tick={{ fontSize: 12 }} />
+              <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#4A4D55' }} />
+              <YAxis tick={{ fontSize: 12, fill: '#4A4D55' }} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#fff',
-                  border: '1px solid rgba(0,0,0,0.08)',
-                  borderRadius: '8px',
+                  backgroundColor: '#1A1D24',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: '6px',
                   fontSize: '13px',
+                  color: '#E8E9ED',
                 }}
               />
-              <Legend />
+              <Legend wrapperStyle={{ color: '#7A7D85' }} />
               <Area
                 type="monotone"
                 dataKey={user1.login}
-                stroke="#7c3aed"
-                fill="#7c3aed"
+                stroke="#F0B429"
+                fill="#F0B429"
                 fillOpacity={0.15}
                 strokeWidth={2}
               />
               <Area
                 type="monotone"
                 dataKey={user2.login}
-                stroke="#c4b5fd"
-                fill="#c4b5fd"
+                stroke="#5CE0D8"
+                fill="#5CE0D8"
                 fillOpacity={0.15}
                 strokeWidth={2}
               />

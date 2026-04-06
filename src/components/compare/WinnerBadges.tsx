@@ -25,7 +25,7 @@ export default function WinnerBadges({ metrics, username1, username2 }: WinnerBa
       {badges.map((b) => (
         <span
           key={b.label}
-          className="bg-violet-100 text-violet-700 text-xs font-medium px-2 py-1 rounded-full"
+          className="bg-[#F0B429]/10 text-[#F0B429] border border-[#F0B429]/20 font-mono text-xs font-medium px-2 py-1 rounded-full"
         >
           @{b.winner}: More {b.label.toLowerCase()}
         </span>

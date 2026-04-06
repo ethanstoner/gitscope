@@ -15,40 +15,40 @@ export default function ProfileHeader({ user, totalStars }: ProfileHeaderProps) 
   ];
 
   return (
-    <div className="bg-white rounded-xl border border-black/8 p-6">
+    <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
       <div className="flex flex-col sm:flex-row gap-6">
         {/* Avatar */}
         <img
           src={user.avatar_url}
           alt={user.login}
-          className="w-24 h-24 rounded-full ring-2 ring-violet-200 flex-shrink-0"
+          className="w-24 h-24 rounded-full ring-2 ring-[#F0B429]/30 flex-shrink-0"
         />
 
         <div className="flex-1 min-w-0">
           {/* Name + username */}
-          <h1 className="text-2xl font-bold text-gray-900 truncate">
+          <h1 className="font-display text-3xl font-bold text-[#E8E9ED] truncate">
             {user.name || user.login}
           </h1>
-          <p className="text-gray-500">@{user.login}</p>
+          <p className="font-mono text-[#7A7D85]">@{user.login}</p>
 
           {/* Bio */}
           {user.bio && (
-            <p className="mt-2 text-gray-700 text-sm leading-relaxed">{user.bio}</p>
+            <p className="mt-2 text-[#7A7D85] text-sm leading-relaxed">{user.bio}</p>
           )}
 
           {/* Stats row */}
           <div className="flex flex-wrap gap-4 mt-4">
             {stats.map((s) => (
-              <div key={s.label} className="flex items-center gap-1.5 text-sm text-gray-600">
-                <span className="w-4 h-4 text-violet-500">{s.icon}</span>
-                <span className="font-semibold text-gray-900">{s.value.toLocaleString()}</span>
-                <span>{s.label}</span>
+              <div key={s.label} className="flex items-center gap-1.5 text-sm">
+                <span className="w-4 h-4 text-[#F0B429]">{s.icon}</span>
+                <span className="font-mono text-lg font-semibold text-[#E8E9ED]">{s.value.toLocaleString()}</span>
+                <span className="text-[#4A4D55]">{s.label}</span>
               </div>
             ))}
           </div>
 
           {/* Info row */}
-          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-sm text-gray-500">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-sm text-[#7A7D85]">
             {user.location && (
               <span className="flex items-center gap-1">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -71,7 +71,7 @@ export default function ProfileHeader({ user, totalStars }: ProfileHeaderProps) 
                 href={user.blog.startsWith('http') ? user.blog : `https://${user.blog}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-violet-600 hover:underline"
+                className="flex items-center gap-1 text-[#F0B429] hover:text-[#E0A420] transition-colors"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" />
@@ -95,7 +95,7 @@ export default function ProfileHeader({ user, totalStars }: ProfileHeaderProps) 
             href={user.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-violet-600 border border-violet-300 rounded-lg hover:bg-violet-50 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#7A7D85] border border-white/10 rounded-lg hover:border-[#F0B429]/40 hover:text-[#F0B429] transition-colors"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />

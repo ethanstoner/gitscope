@@ -48,7 +48,7 @@ export default function UserPage() {
       </div>
 
       {skipped ? (
-        <div className="animate-fade-up bg-white rounded-xl border border-black/8 p-6 text-center text-gray-400 text-sm" style={{ animationDelay: '300ms' }}>
+        <div className="animate-fade-up bg-[#13151A] rounded-lg border border-white/6 p-6 text-center text-[#4A4D55] text-sm" style={{ animationDelay: '300ms' }}>
           Activity data unavailable — add a token for full analysis
         </div>
       ) : (

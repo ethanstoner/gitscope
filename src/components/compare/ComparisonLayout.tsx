@@ -9,22 +9,22 @@ interface ComparisonLayoutProps {
 
 function ProfileCard({ user, totalStars }: { user: GitHubUser; totalStars: number }) {
   return (
-    <div className="bg-white rounded-xl border border-black/8 p-6">
+    <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
       <div className="flex items-center gap-4 mb-5">
         <img
           src={user.avatar_url}
           alt={user.login}
-          className="w-16 h-16 rounded-full"
+          className="w-16 h-16 rounded-full ring-2 ring-[#F0B429]/30"
         />
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-semibold text-[#E8E9ED]">
             {user.name || user.login}
           </h2>
           <a
             href={user.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-500 hover:text-violet-600 transition-colors"
+            className="text-sm font-mono text-[#7A7D85] hover:text-[#F0B429] transition-colors"
           >
             @{user.login}
           </a>
@@ -44,8 +44,8 @@ function ProfileCard({ user, totalStars }: { user: GitHubUser; totalStars: numbe
 function StatItem({ label, value }: { label: string; value: number }) {
   return (
     <div>
-      <p className="text-xs text-gray-400 uppercase tracking-wide">{label}</p>
-      <p className="text-xl font-semibold text-gray-900">{value.toLocaleString()}</p>
+      <p className="text-xs text-[#4A4D55] uppercase tracking-wide">{label}</p>
+      <p className="font-mono text-xl font-semibold text-[#E8E9ED]">{value.toLocaleString()}</p>
     </div>
   );
 }
