@@ -63,8 +63,8 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
               borderRadius: '8px',
               fontSize: '13px',
             }}
-            formatter={(value: number) => [value, 'Events']}
-            labelFormatter={(label: string) => `Week of ${label}`}
+            formatter={(value: any) => [value, 'Events']}
+            labelFormatter={(label: any) => `Week of ${label}`}
           />
           <Area
             type="monotone"

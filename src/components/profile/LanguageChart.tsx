@@ -37,7 +37,7 @@ export default function LanguageChart({ languages }: LanguageChartProps) {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value: number, name: string) => [`${value.toFixed(1)}%`, name]}
+            formatter={(value: any, name: any) => [`${Number(value).toFixed(1)}%`, name]}
             contentStyle={{
               backgroundColor: '#fff',
               border: '1px solid rgba(0,0,0,0.08)',
