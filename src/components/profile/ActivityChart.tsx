@@ -46,14 +46,14 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
           </defs>
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 11, fill: '#8b949e' }}
+            tick={{ fontSize: 11, fill: '#8b949e', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif' }}
             axisLine={false}
             tickLine={false}
             interval="preserveStartEnd"
             minTickGap={40}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: '#8b949e' }}
+            tick={{ fontSize: 11, fill: '#8b949e', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif' }}
             axisLine={false}
             tickLine={false}
             allowDecimals={false}
@@ -66,6 +66,7 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
               borderRadius: '6px',
               fontSize: '12px',
               color: '#e6edf3',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif',
             }}
             formatter={(value: any) => [value, 'Events']}
             labelFormatter={(label: any) => `Week of ${label}`}

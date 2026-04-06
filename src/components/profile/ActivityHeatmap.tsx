@@ -123,6 +123,7 @@ export default function ActivityHeatmap({ heatmap, events }: ActivityHeatmapProp
               y={10}
               fontSize={10}
               fill="#8b949e"
+              fontFamily='-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif'
             >
               {m.label}
             </text>
@@ -136,6 +137,7 @@ export default function ActivityHeatmap({ heatmap, events }: ActivityHeatmapProp
                 y={topOffset + i * (CELL_SIZE + GAP) + CELL_SIZE - 2}
                 fontSize={9}
                 fill="#8b949e"
+                fontFamily='-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif'
               >
                 {label}
               </text>

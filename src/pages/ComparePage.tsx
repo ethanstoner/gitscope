@@ -153,8 +153,8 @@ export default function ComparePage() {
           <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Weekly Activity</h2>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={activityData}>
-              <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#8b949e' }} />
-              <YAxis tick={{ fontSize: 12, fill: '#8b949e' }} />
+              <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#8b949e', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif' }} />
+              <YAxis tick={{ fontSize: 12, fill: '#8b949e', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#161b22',
@@ -162,6 +162,7 @@ export default function ComparePage() {
                   borderRadius: '6px',
                   fontSize: '12px',
                   color: '#e6edf3',
+                  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif',
                 }}
               />
               <Legend wrapperStyle={{ color: '#8b949e' }} />
