@@ -8,7 +8,7 @@ interface ActivityHeatmapProps {
 
 const CELL_SIZE = 14;
 const GAP = 3;
-const COLORS = ['#1A1D24', 'rgba(240,180,41,0.2)', 'rgba(240,180,41,0.5)', 'rgba(240,180,41,0.9)'];
+const COLORS = ['#161B22', 'rgba(63,185,80,0.2)', 'rgba(63,185,80,0.5)', 'rgba(63,185,80,0.9)'];
 
 function getColor(count: number): string {
   if (count === 0) return COLORS[0];
@@ -87,8 +87,8 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
   const svgHeight = topOffset + 7 * (CELL_SIZE + GAP) + GAP;
 
   return (
-    <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
-      <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Activity (90 days)</h2>
+    <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
+      <h2 className="font-display text-lg font-semibold text-[#E6EDF3] mb-4">Activity (90 days)</h2>
 
       <div className="overflow-x-auto">
         <svg width={svgWidth} height={svgHeight} className="block">
@@ -99,7 +99,7 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
               x={labelWidth + m.col * (CELL_SIZE + GAP)}
               y={12}
               fontSize={10}
-              fill="#6B6F77"
+              fill="#484F58"
             >
               {m.label}
             </text>
@@ -113,7 +113,7 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
                 x={0}
                 y={topOffset + i * (CELL_SIZE + GAP) + CELL_SIZE - 2}
                 fontSize={10}
-                fill="#6B6F77"
+                fill="#484F58"
               >
                 {label}
               </text>
@@ -141,16 +141,16 @@ export default function ActivityHeatmap({ heatmap }: ActivityHeatmapProps) {
       <Tooltip
         id="heatmap-tooltip"
         style={{
-          backgroundColor: '#1A1D24',
+          backgroundColor: '#1C2128',
           border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: '6px',
-          color: '#E8E9ED',
+          color: '#E6EDF3',
           fontSize: '13px',
         }}
       />
 
       {/* Color legend */}
-      <div className="flex items-center gap-1 mt-3 text-xs text-[#8B8F96] justify-end">
+      <div className="flex items-center gap-1 mt-3 text-xs text-[#8B949E] justify-end">
         <span>Less</span>
         {COLORS.map((c, i) => (
           <span

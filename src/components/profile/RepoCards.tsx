@@ -53,9 +53,9 @@ export default function RepoCards({ repos }: RepoCardsProps) {
   const username = repos[0]?.full_name.split('/')[0] ?? '';
 
   return (
-    <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
+    <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-        <h2 className="font-display text-lg font-semibold text-[#E8E9ED]">Top Repositories</h2>
+        <h2 className="font-display text-lg font-semibold text-[#E6EDF3]">Top Repositories</h2>
         <div className="flex gap-1">
           {sortOptions.map((opt) => (
             <button
@@ -63,8 +63,8 @@ export default function RepoCards({ repos }: RepoCardsProps) {
               onClick={() => setSortBy(opt.key)}
               className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
                 sortBy === opt.key
-                  ? 'bg-[#F0B429]/15 text-[#F0B429] border border-[#F0B429]/30'
-                  : 'bg-white/[0.04] text-[#9CA0A8] hover:bg-white/[0.08]'
+                  ? 'bg-[#58A6FF]/15 text-[#58A6FF] border border-[#58A6FF]/30'
+                  : 'bg-white/[0.04] text-[#8B949E] hover:bg-white/[0.08]'
               }`}
             >
               {opt.label}
@@ -77,26 +77,26 @@ export default function RepoCards({ repos }: RepoCardsProps) {
         {sorted.map((repo) => (
           <div
             key={repo.id}
-            className="bg-white/[0.02] border border-white/6 rounded-lg p-4 hover:border-[#F0B429]/30 transition-colors"
+            className="bg-white/[0.02] border border-[#30363D] rounded-lg p-4 hover:border-[#58A6FF]/30 transition-colors"
           >
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-[#E8E9ED] hover:text-[#F0B429] truncate block transition-colors"
+              className="text-sm font-semibold text-[#E6EDF3] hover:text-[#58A6FF] truncate block transition-colors"
             >
               {repo.name}
             </a>
             {repo.description && (
-              <p className="text-xs text-[#9CA0A8] mt-1 line-clamp-2">
+              <p className="text-xs text-[#8B949E] mt-1 line-clamp-2">
                 {repo.description.length > 100
                   ? repo.description.slice(0, 100) + '...'
                   : repo.description}
               </p>
             )}
-            <div className="flex items-center gap-3 mt-3 text-xs text-[#8B8F96]">
+            <div className="flex items-center gap-3 mt-3 text-xs text-[#8B949E]">
               {repo.language && (
-                <span className="flex items-center gap-1 text-[#9CA0A8]">
+                <span className="flex items-center gap-1 text-[#8B949E]">
                   <span
                     className="w-2 h-2 rounded-full"
                     style={{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '#555' }}
@@ -128,7 +128,7 @@ export default function RepoCards({ repos }: RepoCardsProps) {
             href={`https://github.com/${username}?tab=repositories`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-[#F0B429] hover:text-[#E0A420] transition-colors"
+            className="text-sm text-[#58A6FF] hover:text-[#4C94E8] transition-colors"
           >
             View all on GitHub &rarr;
           </a>

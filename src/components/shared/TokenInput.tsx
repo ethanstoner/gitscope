@@ -50,16 +50,16 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
         if (e.target === e.currentTarget) handleClose();
       }}
     >
-      <div className="bg-[#13151A] rounded-lg border border-white/8 w-full max-w-md mx-4 p-6 space-y-4 animate-fade-up">
-        <h2 className="text-lg font-display font-semibold text-[#E8E9ED]">GitHub Token</h2>
-        <p className="text-sm text-[#9CA0A8]">
+      <div className="bg-[#161B22] rounded-lg border border-[#30363D] w-full max-w-md mx-4 p-6 space-y-4 animate-fade-up">
+        <h2 className="text-lg font-display font-semibold text-[#E6EDF3]">GitHub Token</h2>
+        <p className="text-sm text-[#8B949E]">
           Add a GitHub personal access token for 5,000 requests/hour instead of 60.
         </p>
         <a
           href="https://github.com/settings/tokens"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-[#F0B429] hover:text-[#E0A420] inline-block transition-colors duration-200"
+          className="text-sm text-[#58A6FF] hover:text-[#4C94E8] inline-block transition-colors duration-200"
         >
           Create a token on GitHub &rarr;
         </a>
@@ -69,26 +69,26 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-          className="w-full px-4 py-2.5 rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#8B8F96] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 font-mono text-sm"
+          className="w-full px-4 py-2.5 rounded-lg border border-[#30363D] bg-white/4 text-[#E6EDF3] placeholder:text-[#8B949E] focus:outline-none focus:border-[#58A6FF]/50 focus:ring-1 focus:ring-[#58A6FF]/20 transition-all duration-200 font-mono text-sm"
           autoFocus
         />
 
         <div className="flex gap-2 justify-end">
           <button
             onClick={handleClear}
-            className="px-4 py-2 text-sm text-[#9CA0A8] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
+            className="px-4 py-2 text-sm text-[#8B949E] hover:text-[#E6EDF3] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Clear Token
           </button>
           <button
             onClick={handleClose}
-            className="px-4 py-2 text-sm text-[#9CA0A8] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
+            className="px-4 py-2 text-sm text-[#8B949E] hover:text-[#E6EDF3] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 text-sm bg-[#F0B429] text-[#0B0D11] font-semibold rounded-lg hover:bg-[#E0A420] transition-all duration-200"
+            className="px-4 py-2 text-sm bg-[#58A6FF] text-white font-semibold rounded-lg hover:bg-[#4C94E8] transition-all duration-200"
           >
             Save
           </button>

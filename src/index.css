@@ -2,17 +2,17 @@
 
 @layer base {
   :root {
-  --bg: #0B0D11;
-  --surface: #13151A;
-  --surface-hover: #1A1D24;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(255, 255, 255, 0.12);
-  --text-primary: #E8E9ED;
-  --text-secondary: #9CA0A8;
-  --text-muted: #8B8F96;
-  --accent: #F0B429;
-  --accent-hover: #E0A420;
-  --teal: #5CE0D8;
+  --bg: #0D1117;
+  --surface: #161B22;
+  --surface-hover: #1C2128;
+  --border: #30363D;
+  --border-hover: #484F58;
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #8B949E;
+  --accent: #58A6FF;
+  --accent-hover: #4C94E8;
+  --teal: #3FB950;
   --error: #F05252;
 }
 
@@ -23,8 +23,8 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: #0B0D11 !important;
-    color: #E8E9ED;
+    background: #0D1117 !important;
+    color: #E6EDF3;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -73,6 +73,6 @@ body::before {
 
 /* Custom selection color */
 ::selection {
-  background: rgba(240, 180, 41, 0.3);
-  color: #F0B429;
+  background: rgba(88, 166, 255, 0.3);
+  color: #58A6FF;
 }
