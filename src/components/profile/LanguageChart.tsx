@@ -1,8 +1,49 @@
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import type { LanguageStat } from '../../utils/types';
 
 interface LanguageChartProps {
   languages: LanguageStat[];
+}
+
+// Map language names to Simple Icons slugs
+const iconSlugs: Record<string, string> = {
+  JavaScript: 'javascript',
+  TypeScript: 'typescript',
+  Python: 'python',
+  Java: 'oracle',
+  'C++': 'cplusplus',
+  C: 'c',
+  'C#': 'csharp',
+  Go: 'go',
+  Rust: 'rust',
+  Ruby: 'ruby',
+  PHP: 'php',
+  Swift: 'swift',
+  Kotlin: 'kotlin',
+  Dart: 'dart',
+  Lua: 'lua',
+  Shell: 'gnubash',
+  HTML: 'html5',
+  CSS: 'css3',
+  SCSS: 'sass',
+  Vue: 'vuedotjs',
+  Svelte: 'svelte',
+  'Jupyter Notebook': 'jupyter',
+  R: 'r',
+  Scala: 'scala',
+  Haskell: 'haskell',
+  Elixir: 'elixir',
+  Perl: 'perl',
+  'Objective-C': 'apple',
+  Dockerfile: 'docker',
+  PowerShell: 'powershell',
+  TeX: 'latex',
+  MATLAB: 'mathworks',
+};
+
+function getIconUrl(lang: string): string {
+  const slug = iconSlugs[lang];
+  if (!slug) return '';
+  return `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`;
 }
 
 export default function LanguageChart({ languages }: LanguageChartProps) {
@@ -15,52 +56,61 @@ export default function LanguageChart({ languages }: LanguageChartProps) {
     );
   }
 
+  const maxPct = languages[0]?.percentage || 1;
+
   return (
     <div className="bg-[#13151A] rounded-lg border border-white/6 p-6">
-      <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-4">Languages</h2>
+      <h2 className="font-display text-lg font-semibold text-[#E8E9ED] mb-5">Languages</h2>
 
-      <ResponsiveContainer width="100%" height={220}>
-        <PieChart>
-          <Pie
-            data={languages}
-            dataKey="percentage"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            innerRadius={60}
-            outerRadius={90}
-            paddingAngle={2}
-            strokeWidth={0}
-          >
-            {languages.map((lang, i) => (
-              <Cell key={i} fill={lang.color} />
-            ))}
-          </Pie>
-          <Tooltip
-            formatter={(value: any, name: any) => [`${Number(value).toFixed(1)}%`, name]}
-            contentStyle={{
-              backgroundColor: '#1A1D24',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '6px',
-              fontSize: '13px',
-              color: '#E8E9ED',
-            }}
-          />
-        </PieChart>
-      </ResponsiveContainer>
+      <div className="space-y-3">
+        {languages.map((lang) => {
+          const slug = iconSlugs[lang.name];
+          return (
+            <div key={lang.name} className="group">
+              <div className="flex items-center gap-3 mb-1.5">
+                {/* Icon or color dot */}
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                  {slug ? (
+                    <img
+                      src={getIconUrl(lang.name)}
+                      alt={lang.name}
+                      className="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity"
+                      style={{ filter: `brightness(0) saturate(100%) invert(1)` }}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span
+                      className="w-3.5 h-3.5 rounded-full"
+                      style={{ backgroundColor: lang.color }}
+                    />
+                  )}
+                </div>
 
-      {/* Legend */}
-      <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 justify-center">
-        {languages.map((lang) => (
-          <div key={lang.name} className="flex items-center gap-1.5 text-sm text-[#7A7D85]">
-            <span
-              className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-              style={{ backgroundColor: lang.color }}
-            />
-            <span>{lang.name}</span>
-            <span className="font-mono text-[#7A7D85]">{lang.percentage.toFixed(1)}%</span>
-          </div>
-        ))}
+                {/* Language name */}
+                <span className="text-sm text-[#E8E9ED] font-medium flex-1">
+                  {lang.name}
+                </span>
+
+                {/* Percentage */}
+                <span className="font-mono text-sm text-[#E8E9ED] tabular-nums">
+                  {lang.percentage}%
+                </span>
+              </div>
+
+              {/* Progress bar */}
+              <div className="ml-9 h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-500 ease-out"
+                  style={{
+                    width: `${(lang.percentage / maxPct) * 100}%`,
+                    backgroundColor: lang.color,
+                    opacity: 0.7,
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

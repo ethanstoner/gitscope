@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import type { GitHubRepo } from '../../utils/types';
+import { getLanguageColor } from '../../utils/languageColors';
 
 interface RepoCardsProps {
   repos: GitHubRepo[];
@@ -87,7 +88,7 @@ export default function RepoCards({ repos }: RepoCardsProps) {
               {repo.name}
             </a>
             {repo.description && (
-              <p className="text-xs text-[#4A4D55] mt-1 line-clamp-2">
+              <p className="text-xs text-[#7A7D85] mt-1 line-clamp-2">
                 {repo.description.length > 100
                   ? repo.description.slice(0, 100) + '...'
                   : repo.description}
@@ -95,10 +96,10 @@ export default function RepoCards({ repos }: RepoCardsProps) {
             )}
             <div className="flex items-center gap-3 mt-3 text-xs text-[#4A4D55]">
               {repo.language && (
-                <span className="flex items-center gap-1">
+                <span className="flex items-center gap-1 text-[#7A7D85]">
                   <span
                     className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: repo.language ? undefined : '#ccc' }}
+                    style={{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '#555' }}
                   />
                   {repo.language}
                 </span>
