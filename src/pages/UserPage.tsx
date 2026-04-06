@@ -29,9 +29,11 @@ export default function UserPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-6">
-      <ProfileHeader user={user} totalStars={totalStars} />
+      <div className="animate-fade-up" style={{ animationDelay: '0ms' }}>
+        <ProfileHeader user={user} totalStars={totalStars} />
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="animate-fade-up grid grid-cols-1 md:grid-cols-2 gap-6" style={{ animationDelay: '100ms' }}>
         <LanguageChart languages={languages} />
         <CodingPersonality
           user={user}
@@ -41,16 +43,22 @@ export default function UserPage() {
         />
       </div>
 
-      <RepoCards repos={repos} />
+      <div className="animate-fade-up" style={{ animationDelay: '200ms' }}>
+        <RepoCards repos={repos} />
+      </div>
 
       {skipped ? (
-        <div className="bg-white rounded-xl border border-black/8 p-6 text-center text-gray-400 text-sm">
+        <div className="animate-fade-up bg-white rounded-xl border border-black/8 p-6 text-center text-gray-400 text-sm" style={{ animationDelay: '300ms' }}>
           Activity data unavailable — add a token for full analysis
         </div>
       ) : (
         <>
-          <ActivityHeatmap heatmap={heatmap} />
-          <ActivityChart weeklyActivity={weeklyActivity} />
+          <div className="animate-fade-up" style={{ animationDelay: '300ms' }}>
+            <ActivityHeatmap heatmap={heatmap} />
+          </div>
+          <div className="animate-fade-up" style={{ animationDelay: '400ms' }}>
+            <ActivityChart weeklyActivity={weeklyActivity} />
+          </div>
         </>
       )}
     </div>
