@@ -1,15 +1,17 @@
 export default function Footer() {
   return (
-    <footer className="text-center text-gray-400 text-sm py-6">
-      Built by{' '}
-      <a
-        href="https://ethanstoner.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-500 hover:text-violet-600 underline transition"
-      >
-        Ethan Stoner
-      </a>
+    <footer className="border-t border-white/6 py-6">
+      <p className="text-center text-[#4A4D55] text-sm font-mono">
+        Built by{' '}
+        <a
+          href="https://ethanstoner.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#7A7D85] hover:text-[#F0B429] transition-colors duration-200"
+        >
+          Ethan Stoner
+        </a>
+      </p>
     </footer>
   );
 }

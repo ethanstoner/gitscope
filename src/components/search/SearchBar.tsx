@@ -29,12 +29,12 @@ export default function SearchBar() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter a GitHub username"
-          className="flex-1 px-4 py-2.5 rounded-lg border border-black/8 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition"
+          placeholder="Enter a GitHub username..."
+          className="flex-1 px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200"
         />
         <button
           type="submit"
-          className="px-5 py-2.5 bg-violet-600 text-white font-medium rounded-lg hover:bg-violet-700 active:bg-violet-800 transition"
+          className="px-6 py-4 bg-[#F0B429] text-[#0B0D11] font-semibold text-lg rounded-lg hover:bg-[#E0A420] active:bg-[#D09A1A] transition-all duration-200"
         >
           Analyze
         </button>
@@ -45,15 +45,15 @@ export default function SearchBar() {
           type="text"
           value={compareUser}
           onChange={(e) => setCompareUser(e.target.value)}
-          placeholder="Enter second GitHub username"
-          className="w-full px-4 py-2.5 rounded-lg border border-black/8 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition"
+          placeholder="Enter second GitHub username..."
+          className="w-full px-5 py-4 text-lg rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 animate-fade-up"
         />
       )}
 
       <button
         type="button"
         onClick={() => setShowCompare(!showCompare)}
-        className="text-sm text-violet-600 hover:text-violet-700 hover:underline transition"
+        className="text-sm text-[#7A7D85] hover:text-[#F0B429] transition-colors duration-200"
       >
         {showCompare ? 'single user mode' : 'or compare two users'}
       </button>

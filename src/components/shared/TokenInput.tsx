@@ -45,21 +45,21 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) handleClose();
       }}
     >
-      <div className="bg-white rounded-xl border border-black/8 shadow-lg w-full max-w-md mx-4 p-6 space-y-4">
-        <h2 className="text-lg font-semibold text-gray-900">GitHub Token</h2>
-        <p className="text-sm text-gray-500">
+      <div className="bg-[#13151A] rounded-lg border border-white/8 w-full max-w-md mx-4 p-6 space-y-4 animate-fade-up">
+        <h2 className="text-lg font-display font-semibold text-[#E8E9ED]">GitHub Token</h2>
+        <p className="text-sm text-[#7A7D85]">
           Add a GitHub personal access token for 5,000 requests/hour instead of 60.
         </p>
         <a
           href="https://github.com/settings/tokens"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-violet-600 hover:underline inline-block"
+          className="text-sm text-[#F0B429] hover:text-[#E0A420] inline-block transition-colors duration-200"
         >
           Create a token on GitHub &rarr;
         </a>
@@ -69,26 +69,26 @@ export default function TokenInput({ isOpen, onClose }: TokenInputProps) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-          className="w-full px-4 py-2.5 rounded-lg border border-black/8 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition font-mono text-sm"
+          className="w-full px-4 py-2.5 rounded-lg border border-white/8 bg-white/4 text-[#E8E9ED] placeholder:text-[#4A4D55] focus:outline-none focus:border-[#F0B429]/50 focus:ring-1 focus:ring-[#F0B429]/20 transition-all duration-200 font-mono text-sm"
           autoFocus
         />
 
         <div className="flex gap-2 justify-end">
           <button
             onClick={handleClear}
-            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 rounded-lg hover:bg-gray-100 transition"
+            className="px-4 py-2 text-sm text-[#7A7D85] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Clear Token
           </button>
           <button
             onClick={handleClose}
-            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 rounded-lg hover:bg-gray-100 transition"
+            className="px-4 py-2 text-sm text-[#7A7D85] hover:text-[#E8E9ED] rounded-lg hover:bg-white/4 transition-all duration-200"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 text-sm bg-violet-600 text-white font-medium rounded-lg hover:bg-violet-700 transition"
+            className="px-4 py-2 text-sm bg-[#F0B429] text-[#0B0D11] font-semibold rounded-lg hover:bg-[#E0A420] transition-all duration-200"
           >
             Save
           </button>

@@ -11,7 +11,7 @@ const ComparePage = lazy(() => import('./pages/ComparePage'));
 export default function App() {
   return (
     <HashRouter>
-      <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
+      <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
           <Suspense fallback={<LoadingSpinner />}>
