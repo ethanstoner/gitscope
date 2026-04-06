@@ -112,8 +112,11 @@ export default function ActivityHeatmap({ heatmap, events }: ActivityHeatmapProp
       <h2 className="text-base font-semibold text-[#e6edf3] mb-3">Activity (90 days)</h2>
 
       <div className="overflow-x-auto">
-        <svg width={svgWidth} height={svgHeight} className="block">
-          {monthLabels.map((m, i) => (
+        <svg width={svgWidth} height={svgHeight} className="block" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif' }}>
+          {/* Month labels — skip if too close to previous */}
+          {monthLabels
+            .filter((m, i, arr) => i === 0 || (m.col - arr[i - 1].col) >= 3)
+            .map((m, i) => (
             <text
               key={i}
               x={labelWidth + m.col * (CELL_SIZE + GAP)}
