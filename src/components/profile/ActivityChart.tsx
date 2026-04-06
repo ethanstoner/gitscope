@@ -20,9 +20,9 @@ function formatWeekLabel(dateStr: string): string {
 export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
   if (weeklyActivity.length === 0) {
     return (
-      <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
-        <h2 className="font-display text-lg font-semibold text-[#E6EDF3] mb-4">Weekly Activity</h2>
-        <p className="text-[#8B949E] text-sm text-center py-8">No recent activity</p>
+      <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
+        <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Weekly Activity</h2>
+        <p className="text-[#8b949e] text-sm text-center py-8">No recent activity</p>
       </div>
     );
   }
@@ -33,36 +33,36 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
   }));
 
   return (
-    <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
-      <h2 className="font-display text-lg font-semibold text-[#E6EDF3] mb-4">Weekly Activity</h2>
+    <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
+      <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Weekly Activity</h2>
 
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
           <defs>
             <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3FB950" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#3FB950" stopOpacity={0} />
+              <stop offset="0%" stopColor="#238636" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#238636" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 11, fill: '#484F58' }}
+            tick={{ fontSize: 11, fill: '#8b949e' }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: '#484F58' }}
+            tick={{ fontSize: 11, fill: '#8b949e' }}
             axisLine={false}
             tickLine={false}
             allowDecimals={false}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1C2128',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: '#161b22',
+              border: '1px solid #30363d',
               borderRadius: '6px',
-              fontSize: '13px',
-              color: '#E6EDF3',
+              fontSize: '12px',
+              color: '#e6edf3',
             }}
             formatter={(value: any) => [value, 'Events']}
             labelFormatter={(label: any) => `Week of ${label}`}
@@ -70,7 +70,7 @@ export default function ActivityChart({ weeklyActivity }: ActivityChartProps) {
           <Area
             type="monotone"
             dataKey="count"
-            stroke="#3FB950"
+            stroke="#3fb950"
             strokeWidth={2}
             fill="url(#areaFill)"
           />

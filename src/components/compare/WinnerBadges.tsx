@@ -16,6 +16,7 @@ export default function WinnerBadges({ metrics, username1, username2 }: WinnerBa
     .map((m) => ({
       label: m.label,
       winner: m.value1 > m.value2 ? username1 : username2,
+      isUser1: m.value1 > m.value2,
     }));
 
   if (badges.length === 0) return null;
@@ -25,7 +26,11 @@ export default function WinnerBadges({ metrics, username1, username2 }: WinnerBa
       {badges.map((b) => (
         <span
           key={b.label}
-          className="bg-[#58A6FF]/10 text-[#58A6FF] border border-[#58A6FF]/20 font-mono text-xs font-medium px-2 py-1 rounded-full"
+          className={`text-xs font-medium px-2 py-0.5 rounded-full border ${
+            b.isUser1
+              ? 'bg-[#21262d] text-[#58a6ff] border-[#30363d]'
+              : 'bg-[#21262d] text-[#3fb950] border-[#30363d]'
+          }`}
         >
           @{b.winner}: More {b.label.toLowerCase()}
         </span>

@@ -53,18 +53,18 @@ export default function RepoCards({ repos }: RepoCardsProps) {
   const username = repos[0]?.full_name.split('/')[0] ?? '';
 
   return (
-    <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
+    <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-        <h2 className="font-display text-lg font-semibold text-[#E6EDF3]">Top Repositories</h2>
+        <h2 className="text-base font-semibold text-[#e6edf3]">Top Repositories</h2>
         <div className="flex gap-1">
           {sortOptions.map((opt) => (
             <button
               key={opt.key}
               onClick={() => setSortBy(opt.key)}
-              className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
+              className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors duration-150 ${
                 sortBy === opt.key
-                  ? 'bg-[#58A6FF]/15 text-[#58A6FF] border border-[#58A6FF]/30'
-                  : 'bg-white/[0.04] text-[#8B949E] hover:bg-white/[0.08]'
+                  ? 'bg-[#58a6ff]/15 text-[#58a6ff]'
+                  : 'text-[#8b949e] hover:text-[#e6edf3]'
               }`}
             >
               {opt.label}
@@ -77,26 +77,26 @@ export default function RepoCards({ repos }: RepoCardsProps) {
         {sorted.map((repo) => (
           <div
             key={repo.id}
-            className="bg-white/[0.02] border border-[#30363D] rounded-lg p-4 hover:border-[#58A6FF]/30 transition-colors"
+            className="border border-[#21262d] rounded-md p-3 hover:border-[#30363d] transition-colors duration-150"
           >
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-[#E6EDF3] hover:text-[#58A6FF] truncate block transition-colors"
+              className="text-sm font-semibold text-[#58a6ff] hover:underline truncate block"
             >
               {repo.name}
             </a>
             {repo.description && (
-              <p className="text-xs text-[#8B949E] mt-1 line-clamp-2">
+              <p className="text-xs text-[#8b949e] mt-1 line-clamp-2">
                 {repo.description.length > 100
                   ? repo.description.slice(0, 100) + '...'
                   : repo.description}
               </p>
             )}
-            <div className="flex items-center gap-3 mt-3 text-xs text-[#8B949E]">
+            <div className="flex items-center gap-3 mt-3 text-xs text-[#8b949e]">
               {repo.language && (
-                <span className="flex items-center gap-1 text-[#8B949E]">
+                <span className="flex items-center gap-1">
                   <span
                     className="w-2 h-2 rounded-full"
                     style={{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '#555' }}
@@ -128,7 +128,7 @@ export default function RepoCards({ repos }: RepoCardsProps) {
             href={`https://github.com/${username}?tab=repositories`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-[#58A6FF] hover:text-[#4C94E8] transition-colors"
+            className="text-sm text-[#58a6ff] hover:underline"
           >
             View all on GitHub &rarr;
           </a>

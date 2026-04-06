@@ -40,29 +40,29 @@ export default function ComparisonBars({
   ];
 
   return (
-    <div className="bg-[#161B22] rounded-lg border border-[#30363D] p-6">
-      <h2 className="font-display text-lg font-semibold text-[#E6EDF3] mb-4">Metric Comparison</h2>
+    <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
+      <h2 className="text-base font-semibold text-[#e6edf3] mb-4">Metric Comparison</h2>
       <ResponsiveContainer width="100%" height={350}>
         <BarChart data={data} layout="vertical" margin={{ left: 20, right: 20 }}>
-          <XAxis type="number" tick={{ fontSize: 12, fill: '#484F58' }} />
+          <XAxis type="number" tick={{ fontSize: 12, fill: '#8b949e' }} />
           <YAxis
             type="category"
             dataKey="metric"
             width={130}
-            tick={{ fontSize: 12, fill: '#484F58' }}
+            tick={{ fontSize: 12, fill: '#8b949e' }}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1C2128',
-              border: '1px solid rgba(255,255,255,0.08)',
+              backgroundColor: '#161b22',
+              border: '1px solid #30363d',
               borderRadius: '6px',
-              fontSize: '13px',
-              color: '#E6EDF3',
+              fontSize: '12px',
+              color: '#e6edf3',
             }}
           />
-          <Legend wrapperStyle={{ color: '#8B949E' }} />
-          <Bar dataKey={user1.login} fill="#58A6FF" radius={[0, 4, 4, 0]} />
-          <Bar dataKey={user2.login} fill="#3FB950" radius={[0, 4, 4, 0]} />
+          <Legend wrapperStyle={{ color: '#8b949e' }} />
+          <Bar dataKey={user1.login} fill="#58a6ff" radius={[0, 4, 4, 0]} />
+          <Bar dataKey={user2.login} fill="#3fb950" radius={[0, 4, 4, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

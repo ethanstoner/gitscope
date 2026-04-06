@@ -38,11 +38,10 @@ export default function CodingPersonality({
   }, [user, languages, totalStars, activeDays]);
 
   return (
-    <div className="bg-[#58A6FF]/5 rounded-lg border border-[#58A6FF]/15 p-6">
-      <div className="text-3xl mb-3 text-[#58A6FF]">&#129504;</div>
-      <h2 className="font-display text-lg font-semibold text-[#58A6FF] mb-3">Coding Personality</h2>
-      <p className="font-display italic text-xl text-[#E6EDF3] leading-relaxed">
-        &ldquo;{personality}&rdquo;
+    <div className="bg-[#161b22] rounded-md border border-[#30363d] p-4">
+      <h2 className="text-base font-semibold text-[#e6edf3] mb-3">Coding Personality</h2>
+      <p className="text-sm text-[#8b949e] leading-relaxed">
+        {personality}
       </p>
     </div>
   );

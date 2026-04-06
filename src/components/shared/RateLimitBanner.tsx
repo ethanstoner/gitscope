@@ -29,14 +29,14 @@ export default function RateLimitBanner({ remaining, resetAt, onAddToken }: Rate
   if (remaining >= 10) return null;
 
   return (
-    <div className="bg-[#58A6FF]/10 border border-[#58A6FF]/20 text-[#58A6FF] px-4 py-3 flex items-center justify-between gap-4 text-sm">
+    <div className="bg-[#d29922]/10 border border-[#d29922]/40 rounded-md text-[#d29922] px-4 py-3 mx-4 mt-3 flex items-center justify-between gap-4 text-sm">
       <div>
         <span className="font-semibold font-mono">{remaining} API requests remaining.</span>{' '}
-        <span className="text-[#58A6FF]/80">Resets in {countdown}.</span>
+        <span className="opacity-80">Resets in {countdown}.</span>
       </div>
       <button
         onClick={onAddToken}
-        className="shrink-0 px-3 py-1.5 bg-[#58A6FF] text-white text-xs font-semibold rounded-lg hover:bg-[#4C94E8] transition-all duration-200"
+        className="shrink-0 px-3 py-1.5 bg-[#238636] text-white text-xs font-medium rounded-md hover:bg-[#2ea043] transition-colors duration-150"
       >
         Add Token
       </button>
